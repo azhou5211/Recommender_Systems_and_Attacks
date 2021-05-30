@@ -64,20 +64,97 @@ class Attack(object):
         return fakeProfileDf 
 
     def Random(self):
-        pass
+        def generate_random_attack(new_user_ids, num_of_ratings_list, target_item = []):
+            if len(new_user_ids) != len(num_of_ratings_list):
+                raise Exception()
+            
+            
+            attack_df = pd.DataFrame(columns=['user_id', 'item_id', 'rating'])
+            for i in range(len(new_user_ids)):
+                user_id = new_user_ids[i]
+                num_of_ratings = num_of_ratings_list[i]
+                
+                random_movies = trainDf['item_id'].sample(n=num_of_ratings, random_state=3).to_numpy()
+                #random_ratings = movie['rating'].sample(n=num_of_ratings, random_state=55, replace=True).to_numpy()
+                random_ratings = np.round(np.random.normal(loc=rating_mean, scale=rating_std, size=num_of_ratings), 1)
+                
+                for j in range(num_of_ratings):
+                    if(random_movies[j] not in target_item):
+                        attack_df.loc[len(attack_df.index)] = [user_id, random_movies[j], random_ratings[j]] 
+                
+                for item in target_item:
+                    attack_df.loc[len(attack_df.index)] = [user_id, item, 5]
+
+            return attack_df
+
+        new_user_ids = np.arange(self.fakeUserIdStart, self.fakeUserIdStart+self.attackNum)
+        num_of_ratings_list = np.full((self.attackNum), self.filler_item_count)
+        return generate_random_attack(new_user_ids, num_of_ratings_list, self.target_items)
 
     def Average(self):
         pass
 
     def Sampling(self):
-        pass
+        def generate_sample_attack(new_user_ids, num_of_ratings_list, target_item = []):
+            if len(new_user_ids) != len(num_of_ratings_list):
+                raise Exception()
+            
+            
+            attack_df = pd.DataFrame(columns=['user_id', 'item_id', 'rating'])
+            for i in range(len(new_user_ids)):
+                user_id = new_user_ids[i]
+                num_of_ratings = num_of_ratings_list[i]
+                
+                random_movies = trainDf['item_id'].sample(n=num_of_ratings, random_state=3).to_numpy()
+                random_ratings = trainDf['rating'].sample(n=num_of_ratings, random_state=55, replace=True).to_numpy()
+                
+                for j in range(num_of_ratings):
+                    if(random_movies[j] not in target_item):
+                        attack_df.loc[len(attack_df.index)] = [user_id, random_movies[j], random_ratings[j]] 
+                
+                for item in target_item:
+                    attack_df.loc[len(attack_df.index)] = [user_id, item, 5]
+            
+            return attack_df
+
+        new_user_ids = np.arange(self.fakeUserIdStart, self.fakeUserIdStart+self.attackNum)
+        num_of_ratings_list = np.full((self.attackNum), self.filler_item_count)
+        return generate_sample_attack(new_user_ids, num_of_ratings_list, self.target_items)
+
+    def Segment(self):
+        def generate_segment_attack(new_user_ids, num_of_ratings_list, target_item = []):
+            if len(new_user_ids) != len(num_of_ratings_list):
+                raise Exception()
+            
+            
+            attack_df = pd.DataFrame(columns=['user_id', 'item_id', 'rating'])
+            for i in range(len(new_user_ids)):
+                user_id = new_user_ids[i]
+                num_of_ratings = num_of_ratings_list[i]
+                
+                random_movies = trainDf['item_id'].sample(n=num_of_ratings, random_state=3).to_numpy()
+                
+                for j in range(num_of_ratings):
+                    if(random_movies[j] not in target_item):
+                        attack_df.loc[len(attack_df.index)] = [user_id, random_movies[j], 1] 
+                
+                for item in target_item:
+                    attack_df.loc[len(attack_df.index)] = [user_id, item, 5]
+            
+            return attack_df
+
+        new_user_ids = np.arange(self.fakeUserIdStart, self.fakeUserIdStart+self.attackNum)
+        num_of_ratings_list = np.full((self.attackNum), self.filler_item_count)
+        return generate_segment_attack(new_user_ids, num_of_ratings_list, self.target_items)
 
 def createAttackData(attackNum, target_items, selectedItems):
     attack = Attack(attackNum, target_items, selectedItems)
 
-    bandwagonDf =  attack.Bandwagon()
+    bandwagonDf = attack.Bandwagon()
     randomDf = attack.Random()
     averageDf = attack.Average()
+    samplingDf = attack.Sampling()
+    segmentDf = attack.Segment()
 
     bandwagonDf.to_csv('bandwagon.csv', index=False)
     #randomDf.to_csv('random.csv', index=False)
