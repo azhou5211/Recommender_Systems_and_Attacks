@@ -6,7 +6,7 @@ import numpy as np
 def prediction_shift(predBefore, predAtk, target_users, testDf):
     
     targetUsersTest = testDf[testDf.user_id.isin(target_users)]
-    numTargetUsersInTest = len(targetUsersTest.user_id)
+    numTargetUsersInTest = len(targetUsersTest.user_id.unique())
     print(f'Number of target users in test: {numTargetUsersInTest}, uniq: {len(targetUsersTest.user_id.unique())}')
     
     # - Prediction shift across targetted users
@@ -18,7 +18,7 @@ def prediction_shift(predBefore, predAtk, target_users, testDf):
     predBeforeAttack = predBefore.sort_values(['user_id', 'item_id']).prediction
     print('diff sum: ', np.sum(predAfterAttack - predBeforeAttack))
     print('count: ', testDf.user_id.count(), ' uniq: ', len(testDf.user_id.unique()))
-    allUsersPredShift = np.sum(predAfterAttack - predBeforeAttack)/len(testDf.user_id)
+    allUsersPredShift = np.sum(predAfterAttack - predBeforeAttack)/len(testDf.user_id.unique())
     
     return (allUsersPredShift, targetUserPredShift)
 

@@ -1,0 +1,356 @@
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Computed prediction and top 10 for model before adding attack data
+Number of target users:  197
+
+Case 1: Target items: [1122, 1201, 1500], target users: 197
+
+ ------------------------------
+Simulating attack:  bandwagon
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  12.393356167893664
+count:  19999  uniq:  459
+[bandwagon] Prediction shift - Target users: 0.17868944981714974
+[bandwagon] Prediction shift - All users: 0.027000775964909945
+[bandwagon] Number of users with targets: 1
+[bandwagon] Number of users with targets before attack: 1
+[bandwagon] hitRatioPerItem: {1122: 0.0, 1201: 0.0, 1500: 0.002178649237472767}
+[bandwagon] avgHitRatio after attack: 0.0007262164124909224
+
+ ------------------------------
+Simulating attack:  random
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  -20.914465290187238
+count:  19999  uniq:  459
+[random] Prediction shift - Target users: -0.09142585961881897
+[random] Prediction shift - All users: -0.045565283856617074
+[random] Number of users with targets: 1
+[random] Number of users with targets before attack: 1
+[random] hitRatioPerItem: {1122: 0.0, 1201: 0.0, 1500: 0.002178649237472767}
+[random] avgHitRatio after attack: 0.0007262164124909224
+
+ ------------------------------
+Simulating attack:  sampling
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  6.283161030832753
+count:  19999  uniq:  459
+[sampling] Prediction shift - Target users: 0.04915193460573441
+[sampling] Prediction shift - All users: 0.01368880398874238
+[sampling] Number of users with targets: 1
+[sampling] Number of users with targets before attack: 1
+[sampling] hitRatioPerItem: {1122: 0.0, 1201: 0.0, 1500: 0.002178649237472767}
+[sampling] avgHitRatio after attack: 0.0007262164124909224
+
+ ------------------------------
+Simulating attack:  segment
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  -193.70386404588794
+count:  19999  uniq:  459
+[segment] Prediction shift - Target users: -0.23470301881991248
+[segment] Prediction shift - All users: -0.4220127756991023
+[segment] Number of users with targets: 1
+[segment] Number of users with targets before attack: 1
+[segment] hitRatioPerItem: {1122: 0.0, 1201: 0.0, 1500: 0.002178649237472767}
+[segment] avgHitRatio after attack: 0.0007262164124909224
+
+ ------------------------------
+Simulating attack:  average
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  -14.672511109020485
+count:  19999  uniq:  459
+[average] Prediction shift - Target users: -0.006795251743384861
+[average] Prediction shift - All users: -0.03196625513947818
+[average] Number of users with targets: 1
+[average] Number of users with targets before attack: 1
+[average] hitRatioPerItem: {1122: 0.0, 1201: 0.0, 1500: 0.002178649237472767}
+[average] avgHitRatio after attack: 0.0007262164124909224
+Number of target users:  198
+
+Case 2: Target items: [1661, 1671, 1678], target users: 198
+
+ ------------------------------
+Simulating attack:  bandwagon
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  12.081544197316544
+count:  19999  uniq:  459
+[bandwagon] Prediction shift - Target users: -0.1743970753831017
+[bandwagon] Prediction shift - All users: 0.02632144705297722
+[bandwagon] Number of users with targets: 0
+[bandwagon] Number of users with targets before attack: 0
+[bandwagon] hitRatioPerItem: {1661: 0.0, 1671: 0.0, 1678: 0.0}
+[bandwagon] avgHitRatio after attack: 0.0
+
+ ------------------------------
+Simulating attack:  random
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  -7.580092197718818
+count:  19999  uniq:  459
+[random] Prediction shift - Target users: -0.021780441427188966
+[random] Prediction shift - All users: -0.016514362086533372
+[random] Number of users with targets: 0
+[random] Number of users with targets before attack: 0
+[random] hitRatioPerItem: {1661: 0.0, 1671: 0.0, 1678: 0.0}
+[random] avgHitRatio after attack: 0.0
+
+ ------------------------------
+Simulating attack:  sampling
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  6.518255718603366
+count:  19999  uniq:  459
+[sampling] Prediction shift - Target users: 0.050001456122080894
+[sampling] Prediction shift - All users: 0.014200992850987726
+[sampling] Number of users with targets: 0
+[sampling] Number of users with targets before attack: 0
+[sampling] hitRatioPerItem: {1661: 0.0, 1671: 0.0, 1678: 0.0}
+[sampling] avgHitRatio after attack: 0.0
+
+ ------------------------------
+Simulating attack:  segment
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  -190.95040206588007
+count:  19999  uniq:  459
+[segment] Prediction shift - Target users: -0.24145972123057097
+[segment] Prediction shift - All users: -0.41601394785594786
+[segment] Number of users with targets: 0
+[segment] Number of users with targets before attack: 0
+[segment] hitRatioPerItem: {1661: 0.0, 1671: 0.0, 1678: 0.0}
+[segment] avgHitRatio after attack: 0.0
+
+ ------------------------------
+Simulating attack:  average
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 44, uniq: 44
+diff sum:  -10.444684850974188
+count:  19999  uniq:  459
+[average] Prediction shift - Target users: -0.05443947395136331
+[average] Prediction shift - All users: -0.022755304686218274
+[average] Number of users with targets: 0
+[average] Number of users with targets before attack: 0
+[average] hitRatioPerItem: {1661: 0.0, 1671: 0.0, 1678: 0.0}
+[average] avgHitRatio after attack: 0.0
+Number of target users:  41
+
+Case 3: Target items: [678, 235, 210], target users: 41
+
+ ------------------------------
+Simulating attack:  bandwagon
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 6, uniq: 6
+diff sum:  3.640855361608069
+count:  19999  uniq:  459
+[bandwagon] Prediction shift - Target users: 0.4213223035367722
+[bandwagon] Prediction shift - All users: 0.007932146757316055
+[bandwagon] Number of users with targets: 21
+[bandwagon] Number of users with targets before attack: 20
+[bandwagon] hitRatioPerItem: {678: 0.013071895424836602, 235: 0.002178649237472767, 210: 0.030501089324618737}
+[bandwagon] avgHitRatio after attack: 0.01525054466230937
+
+ ------------------------------
+Simulating attack:  random
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 6, uniq: 6
+diff sum:  -2.040531831456733
+count:  19999  uniq:  459
+[random] Prediction shift - Target users: 0.0331491427424612
+[random] Prediction shift - All users: -0.00444560311864212
+[random] Number of users with targets: 27
+[random] Number of users with targets before attack: 20
+[random] hitRatioPerItem: {678: 0.015250544662309368, 235: 0.004357298474945534, 210: 0.0392156862745098}
+[random] avgHitRatio after attack: 0.0196078431372549
+
+ ------------------------------
+Simulating attack:  sampling
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 6, uniq: 6
+diff sum:  6.300267516594529
+count:  19999  uniq:  459
+[sampling] Prediction shift - Target users: 0.01989573004184268
+[sampling] Prediction shift - All users: 0.013726073020903113
+[sampling] Number of users with targets: 23
+[sampling] Number of users with targets before attack: 20
+[sampling] hitRatioPerItem: {678: 0.013071895424836602, 235: 0.006535947712418301, 210: 0.030501089324618737}
+[sampling] avgHitRatio after attack: 0.01670297748729121
+
+ ------------------------------
+Simulating attack:  segment
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 6, uniq: 6
+diff sum:  -170.4425221841937
+count:  19999  uniq:  459
+[segment] Prediction shift - Target users: -0.12633644190552004
+[segment] Prediction shift - All users: -0.37133447098952876
+[segment] Number of users with targets: 21
+[segment] Number of users with targets before attack: 20
+[segment] hitRatioPerItem: {678: 0.010893246187363835, 235: 0.004357298474945534, 210: 0.030501089324618737}
+[segment] avgHitRatio after attack: 0.01525054466230937
+
+ ------------------------------
+Simulating attack:  average
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 6, uniq: 6
+diff sum:  2.899116488344399
+count:  19999  uniq:  459
+[average] Prediction shift - Target users: 0.2029390787015963
+[average] Prediction shift - All users: 0.006316157926676251
+[average] Number of users with targets: 26
+[average] Number of users with targets before attack: 20
+[average] hitRatioPerItem: {678: 0.015250544662309368, 235: 0.004357298474945534, 210: 0.037037037037037035}
+[average] avgHitRatio after attack: 0.01888162672476398
+Number of target users:  148
+
+Case 4: Target items: [107, 62, 1216], target users: 148
+
+ ------------------------------
+Simulating attack:  bandwagon
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 35, uniq: 35
+diff sum:  -14.779803753174232
+count:  19999  uniq:  459
+[bandwagon] Prediction shift - Target users: -0.009975735429059097
+[bandwagon] Prediction shift - All users: -0.032200008176850176
+[bandwagon] Number of users with targets: 8
+[bandwagon] Number of users with targets before attack: 0
+[bandwagon] hitRatioPerItem: {107: 0.013071895424836602, 62: 0.002178649237472767, 1216: 0.002178649237472767}
+[bandwagon] avgHitRatio after attack: 0.005809731299927379
+
+ ------------------------------
+Simulating attack:  random
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 35, uniq: 35
+diff sum:  0.3055845751543793
+count:  19999  uniq:  459
+[random] Prediction shift - Target users: 0.02744901887051565
+[random] Prediction shift - All users: 0.0006657616016435279
+[random] Number of users with targets: 8
+[random] Number of users with targets before attack: 0
+[random] hitRatioPerItem: {107: 0.010893246187363835, 62: 0.004357298474945534, 1216: 0.002178649237472767}
+[random] avgHitRatio after attack: 0.005809731299927379
+
+ ------------------------------
+Simulating attack:  sampling
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 35, uniq: 35
+diff sum:  10.302730267114487
+count:  19999  uniq:  459
+[sampling] Prediction shift - Target users: 0.12464667916138214
+[sampling] Prediction shift - All users: 0.022446035440336572
+[sampling] Number of users with targets: 1
+[sampling] Number of users with targets before attack: 0
+[sampling] hitRatioPerItem: {107: 0.002178649237472767, 62: 0.0, 1216: 0.0}
+[sampling] avgHitRatio after attack: 0.0007262164124909224
+
+ ------------------------------
+Simulating attack:  segment
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 35, uniq: 35
+diff sum:  -172.90038155156347
+count:  19999  uniq:  459
+[segment] Prediction shift - Target users: -0.19230015999250333
+[segment] Prediction shift - All users: -0.3766892844260642
+[segment] Number of users with targets: 3
+[segment] Number of users with targets before attack: 0
+[segment] hitRatioPerItem: {107: 0.002178649237472767, 62: 0.004357298474945534, 1216: 0.0}
+[segment] avgHitRatio after attack: 0.002178649237472767
+
+ ------------------------------
+Simulating attack:  average
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+Number of target users in test: 35, uniq: 35
+diff sum:  -9.558625155520796
+count:  19999  uniq:  459
+[average] Prediction shift - Target users: 0.049028920825865754
+[average] Prediction shift - All users: -0.02082489140636339
+[average] Number of users with targets: 2
+[average] Number of users with targets before attack: 0
+[average] hitRatioPerItem: {107: 0.002178649237472767, 62: 0.0, 1216: 0.002178649237472767}
+[average] avgHitRatio after attack: 0.0014524328249818448
