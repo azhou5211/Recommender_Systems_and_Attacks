@@ -1,7 +1,7 @@
 
 # - Case 1: Low rating count and High rating target items 
 # target items: [1122, 1201, 1500] selected items: [50, 181, 258]
-#python attack.py --ti 1122 1201 1500 --o ../attackData/case1
+python attack.py --ti 1122 1201 1500 --o ../attackData/case1
 
 # - Case 2: Low rating count and Low rating target items
 # target items: [1661, 1671, 1678] selected items: [50, 181, 258]
