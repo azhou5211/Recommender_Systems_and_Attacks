@@ -159,7 +159,7 @@ class Attack(object):
 
         new_user_ids = np.arange(self.fakeUserIdStart, self.fakeUserIdStart+self.attackNum)
         num_of_ratings_list = np.full((self.attackNum), self.filler_item_count)
-        target_items1 = [713, 1053, 6, 366, 9, 459]
+        target_items1 = [713, 1053, 6]
         #target_items2 = [422, 1219, 1066, 1470, 1409, 1078]
         return generate_segment_attack(new_user_ids, num_of_ratings_list, target_items1)
 
