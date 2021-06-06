@@ -1,0 +1,316 @@
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9334
+Base RMSE:  0.9334
+new predictions:  649026
+Computed prediction and top 10 for model before adding attack data
+Time taken:  95.07668685913086
+Number of target users:  197
+
+Case 1: Target items: [1122, 1201, 1500], target users: 197
+
+Simulating attack:  bandwagon
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9375
+RMSE:  0.9375
+No. of predictions:  649026
+[bandwagon] Prediction shift - Target users: 0.13093183137519665
+[bandwagon] Prediction shift - All users: 0.5496972794840129
+[bandwagon] Number of users with targets before attack: 223
+[bandwagon] Number of users with targets: 422
+[bandwagon] hitRatioPerItem: {1122: 0.8322440087145969, 1201: 0.0, 1500: 0.8431372549019608}
+[bandwagon] avgHitRatio: 0.5584604212055192
+Time taken:  101.58639287948608
+
+
+Simulating attack:  random
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9340
+RMSE:  0.934
+No. of predictions:  649026
+[random] Prediction shift - Target users: 0.12203023952943821
+[random] Prediction shift - All users: 0.5136849624847525
+[random] Number of users with targets before attack: 223
+[random] Number of users with targets: 431
+[random] hitRatioPerItem: {1122: 0.8387799564270153, 1201: 0.0, 1500: 0.8888888888888888}
+[random] avgHitRatio: 0.5758896151053013
+Time taken:  101.6610918045044
+
+
+Simulating attack:  sampling
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9321
+RMSE:  0.9321
+No. of predictions:  649026
+[sampling] Prediction shift - Target users: 0.10674384677461761
+[sampling] Prediction shift - All users: 0.4620433042484855
+[sampling] Number of users with targets before attack: 223
+[sampling] Number of users with targets: 415
+[sampling] hitRatioPerItem: {1122: 0.599128540305011, 1201: 0.0, 1500: 0.8649237472766884}
+[sampling] avgHitRatio: 0.48801742919389984
+Time taken:  101.70549392700195
+
+
+Simulating attack:  average
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9346
+RMSE:  0.9346
+No. of predictions:  649026
+[average] Prediction shift - Target users: 0.12012953723190938
+[average] Prediction shift - All users: 0.5100679435351648
+[average] Number of users with targets before attack: 223
+[average] Number of users with targets: 440
+[average] hitRatioPerItem: {1122: 0.8888888888888888, 1201: 0.0, 1500: 0.9215686274509803}
+[average] avgHitRatio: 0.6034858387799563
+Time taken:  103.2297682762146
+
+
+..............................
+Number of target users:  198
+
+Case 2: Target items: [1661, 1671, 1678], target users: 198
+
+Simulating attack:  bandwagon
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9347
+RMSE:  0.9347
+No. of predictions:  649026
+[bandwagon] Prediction shift - Target users: 0.6111568430168899
+[bandwagon] Prediction shift - All users: 2.514147378195798
+[bandwagon] Number of users with targets before attack: 0
+[bandwagon] Number of users with targets: 434
+[bandwagon] hitRatioPerItem: {1661: 0.7037037037037037, 1671: 0.7559912854030502, 1678: 0.7603485838779956}
+[bandwagon] avgHitRatio: 0.7400145243282498
+Time taken:  104.39238786697388
+
+
+Simulating attack:  random
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9338
+RMSE:  0.9338
+No. of predictions:  649026
+[random] Prediction shift - Target users: 0.6007517706318789
+[random] Prediction shift - All users: 2.2674558156230122
+[random] Number of users with targets before attack: 0
+[random] Number of users with targets: 434
+[random] hitRatioPerItem: {1661: 0.7407407407407407, 1671: 0.7886710239651417, 1678: 0.7886710239651417}
+[random] avgHitRatio: 0.7726942628903414
+Time taken:  102.43915510177612
+
+
+Simulating attack:  sampling
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9321
+RMSE:  0.9321
+No. of predictions:  649026
+[sampling] Prediction shift - Target users: 0.1608898050793297
+[sampling] Prediction shift - All users: 0.9670648365549607
+[sampling] Number of users with targets before attack: 0
+[sampling] Number of users with targets: 348
+[sampling] hitRatioPerItem: {1661: 0.3812636165577342, 1671: 0.4880174291938998, 1678: 0.45098039215686275}
+[sampling] avgHitRatio: 0.4400871459694989
+Time taken:  101.26334071159363
+
+
+Simulating attack:  average
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9342
+RMSE:  0.9342
+No. of predictions:  649026
+[average] Prediction shift - Target users: 0.592377296867396
+[average] Prediction shift - All users: 2.472501304815718
+[average] Number of users with targets before attack: 0
+[average] Number of users with targets: 440
+[average] hitRatioPerItem: {1661: 0.7821350762527233, 1671: 0.8496732026143791, 1678: 0.8278867102396514}
+[average] avgHitRatio: 0.8198983297022512
+Time taken:  103.9292471408844
+
+
+..............................
+Number of target users:  41
+
+Case 3: Target items: [678, 235, 210], target users: 41
+
+Simulating attack:  bandwagon
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9346
+RMSE:  0.9346
+No. of predictions:  649026
+[bandwagon] Prediction shift - Target users: 0.02899148765948796
+[bandwagon] Prediction shift - All users: 0.09731080247998165
+[bandwagon] Number of users with targets before attack: 1
+[bandwagon] Number of users with targets: 1
+[bandwagon] hitRatioPerItem: {678: 0.0, 235: 0.0, 210: 0.002178649237472767}
+[bandwagon] avgHitRatio: 0.0007262164124909224
+Time taken:  102.7720079421997
+
+
+Simulating attack:  random
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9338
+RMSE:  0.9338
+No. of predictions:  649026
+[random] Prediction shift - Target users: 0.035655160016209976
+[random] Prediction shift - All users: 0.21043070739066885
+[random] Number of users with targets before attack: 1
+[random] Number of users with targets: 2
+[random] hitRatioPerItem: {678: 0.0, 235: 0.0, 210: 0.004357298474945534}
+[random] avgHitRatio: 0.0014524328249818448
+Time taken:  101.227863073349
+
+
+Simulating attack:  sampling
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9318
+RMSE:  0.9318
+No. of predictions:  649026
+[sampling] Prediction shift - Target users: 0.0050345927635740305
+[sampling] Prediction shift - All users: 0.0125560916970492
+[sampling] Number of users with targets before attack: 1
+[sampling] Number of users with targets: 0
+[sampling] hitRatioPerItem: {678: 0.0, 235: 0.0, 210: 0.0}
+[sampling] avgHitRatio: 0.0
+Time taken:  101.35360980033875
+
+
+Simulating attack:  average
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9339
+RMSE:  0.9339
+No. of predictions:  649026
+[average] Prediction shift - Target users: 0.10294536263469824
+[average] Prediction shift - All users: 0.2891642527106185
+[average] Number of users with targets before attack: 1
+[average] Number of users with targets: 1
+[average] hitRatioPerItem: {678: 0.0, 235: 0.0, 210: 0.002178649237472767}
+[average] avgHitRatio: 0.0007262164124909224
+Time taken:  101.87652611732483
+
+
+..............................
+Number of target users:  148
+
+Case 4: Target items: [107, 62, 1216], target users: 148
+
+Simulating attack:  bandwagon
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9354
+RMSE:  0.9354
+No. of predictions:  649026
+[bandwagon] Prediction shift - Target users: 0.20384969047942655
+[bandwagon] Prediction shift - All users: 0.8165993377688675
+[bandwagon] Number of users with targets before attack: 0
+[bandwagon] Number of users with targets: 263
+[bandwagon] hitRatioPerItem: {107: 0.06318082788671024, 62: 0.0, 1216: 0.5599128540305011}
+[bandwagon] avgHitRatio: 0.20769789397240376
+Time taken:  103.5670440196991
+
+
+Simulating attack:  random
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9347
+RMSE:  0.9347
+No. of predictions:  649026
+[random] Prediction shift - Target users: 0.2170377853809434
+[random] Prediction shift - All users: 0.8093193079382509
+[random] Number of users with targets before attack: 0
+[random] Number of users with targets: 293
+[random] hitRatioPerItem: {107: 0.06753812636165578, 62: 0.004357298474945534, 1216: 0.6209150326797386}
+[random] avgHitRatio: 0.23093681917211328
+Time taken:  101.05004620552063
+
+
+Simulating attack:  sampling
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9321
+RMSE:  0.9321
+No. of predictions:  649026
+[sampling] Prediction shift - Target users: 0.03036318182818841
+[sampling] Prediction shift - All users: 0.15443184758376852
+[sampling] Number of users with targets before attack: 0
+[sampling] Number of users with targets: 47
+[sampling] hitRatioPerItem: {107: 0.006535947712418301, 62: 0.0, 1216: 0.10239651416122005}
+[sampling] avgHitRatio: 0.03631082062454612
+Time taken:  101.61333298683167
+
+
+Simulating attack:  average
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9344
+RMSE:  0.9344
+No. of predictions:  649026
+[average] Prediction shift - Target users: 0.2143558447652364
+[average] Prediction shift - All users: 0.9172535190859126
+[average] Number of users with targets before attack: 0
+[average] Number of users with targets: 279
+[average] hitRatioPerItem: {107: 0.12636165577342048, 62: 0.0, 1216: 0.5904139433551199}
+[average] avgHitRatio: 0.23892519970951345
+Time taken:  103.55357885360718
+
+
+..............................
+Number of target users:  164
+Simulating attack:  segment
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9317
+RMSE:  0.9317
+No. of predictions:  649026
+[segment] Prediction shift - Target users: 0.03174859195852584
+[segment] Prediction shift - All users: 0.12405914809490241
+[segment] Number of users with targets before attack: 6
+[segment] Number of users with targets: 54
+[segment] hitRatioPerItem: {713: 0.0457516339869281, 1053: 0.08932461873638345, 6: 0.11328976034858387}
+[segment] avgHitRatio: 0.08278867102396514
+Total time:  1738.668555021286
