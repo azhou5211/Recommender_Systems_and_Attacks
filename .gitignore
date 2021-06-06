@@ -6,4 +6,3 @@ __pycache__/*
 .DS_Store
 .ipynb_checkpoints/
 *.Identifier
-attackData/*
