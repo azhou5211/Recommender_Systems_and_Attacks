@@ -1,0 +1,27 @@
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9334
+Base RMSE:  0.9334
+new predictions:  649026
+Computed prediction and top 10 for model before adding attack data
+Time taken:  94.60856127738953
+Number of target users:  197
+
+Case 1: Target items: [1122, 1201, 1500], target users: 197
+Simulating attack:  bandwagon
+------------------------------ 
+
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9339
+RMSE:  0.9339
+No. of predictions:  649026
+Traceback (most recent call last):
+  File "user_knn.py", line 139, in <module>
+    allUsersPredShift, targetUserPredShift = prediction_shift(b4_NewTestDf, attacNewTestDf, target_users, newTestDf)
+NameError: name 'attacNewTestDf' is not defined
+ile "/Users/shruthik/miniconda3/envs/pyspark_env/lib/python3.7/site-packages/surprise/prediction_algorithms/knns.py", line 304, in estimate
+    if sim > 0:
+KeyboardInterrupt

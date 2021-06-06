@@ -1,0 +1,28 @@
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9358
+Base RMSE:  0.9358
+new predictions:  649026
+Computed prediction and top 10 for model before adding attack data
+Time taken:  94.37085199356079
+Number of target users:  197
+Case 1: Target items: [1122, 1201, 1500], target users: [15, 57, 85, 104, 116, 119, 151, 153, 177, 183, 185, 222, 249, 250, 263, 294, 301, 313, 323, 328, 334, 345, 347, 350, 354, 363, 387, 395, 402, 411, 413, 416, 417, 425, 429, 430, 435, 447, 450, 453, 455, 456, 457, 459, 464, 465, 466, 467, 468, 470, 472, 474, 479, 483, 484, 486, 487, 488, 490, 493, 497, 498, 499, 500, 504, 505, 506, 507, 509, 513, 514, 517, 521, 523, 526, 528, 533, 535, 537, 538, 540, 541, 545, 546, 548, 549, 550, 551, 552, 555, 560, 561, 564, 580, 582, 584, 588, 592, 595, 596, 601, 606, 619, 623, 624, 625, 630, 632, 642, 644, 645, 650, 653, 654, 655, 659, 661, 663, 666, 669, 671, 676, 682, 689, 693, 698, 699, 703, 706, 708, 710, 711, 714, 721, 727, 730, 735, 738, 742, 745, 747, 748, 749, 756, 757, 758, 759, 760, 761, 770, 771, 773, 774, 779, 782, 790, 796, 798, 805, 806, 807, 815, 825, 826, 831, 832, 834, 838, 839, 843, 844, 846, 847, 862, 864, 867, 870, 871, 875, 878, 880, 882, 887, 889, 890, 896, 899, 902, 907, 913, 919, 922, 924, 931, 936, 938, 940]
+
+Simulating attack:  bandwagon
+------------------------------
+Estimating biases using als...
+Computing the pearson_baseline similarity matrix...
+Done computing similarity matrix.
+RMSE: 0.9365
+RMSE:  0.9365
+No. of predictions:  649026
+Number of target users in test: 44, uniq: 44
+diff sum:  -3411.7206311619693
+count:  649026  uniq:  459
+[bandwagon] Prediction shift - Target users: -7.8137207683488805
+[bandwagon] Prediction shift - All users: -7.432942551551132
+Traceback (most recent call last):
+  File "item_knn.py", line 144, in <module>
+    attackItemTop10 = get_top_n(attackItemTestDf)
+NameError: name 'attackItemTestDf' is not defined
