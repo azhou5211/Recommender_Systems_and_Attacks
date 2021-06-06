@@ -7,7 +7,7 @@ new predictions:  649026
 Computed prediction and top 10 for model before adding attack data
 Time taken:  93.11771392822266
 Number of target users:  197
-Case 1: Target items: [1122, 1201, 1500], no. of target users: 197
+Case 1: Target items: [1122, 1202, 1500], no. of target users: 194
 
 Simulating attack:  bandwagon
 ------------------------------
@@ -17,13 +17,13 @@ Done computing similarity matrix.
 RMSE: 0.9401
 RMSE:  0.9401
 No. of predictions:  649026
-[bandwagon] Prediction shift - Target users: 0.18805274467173824
-[bandwagon] Prediction shift - All users: 0.7373847921182511
-[bandwagon] Number of users with targets: 336
-[bandwagon] Number of users with targets before attack: 1
-[bandwagon] HitRatioPerItem: {1122: 0.7015250544662309, 1201: 0.0, 1500: 0.6993464052287581}
-[bandwagon] AvgHitRatio: 0.46695715323166304
-Total time:  152.03386402130127
+[bandwagon] Prediction shift - Target users: 0.2748005406512199
+[bandwagon] Prediction shift - All users: 1.0837150344266833
+[bandwagon] Number of users with targets: 347
+[bandwagon] Number of users with targets before attack: 2
+[bandwagon] HitRatioPerItem: {1122: 0.7124183006535948, 1202: 0.673202614379085, 1500: 0.6928104575163399}
+[bandwagon] AvgHitRatio: 0.6928104575163397
+Total time:  137.8102719783783
 
 
 Simulating attack:  random
@@ -34,13 +34,13 @@ Done computing similarity matrix.
 RMSE: 0.9388
 RMSE:  0.9388
 No. of predictions:  649026
-[random] Prediction shift - Target users: 0.15465649565920234
-[random] Prediction shift - All users: 0.6656944965878729
-[random] Number of users with targets: 279
-[random] Number of users with targets before attack: 1
-[random] HitRatioPerItem: {1122: 0.5729847494553377, 1201: 0.0, 1500: 0.579520697167756}
-[random] AvgHitRatio: 0.3841684822076979
-Total time:  146.80011677742004
+[random] Prediction shift - Target users: 0.23015766120212186
+[random] Prediction shift - All users: 0.985560215243528
+[random] Number of users with targets: 319
+[random] Number of users with targets before attack: 2
+[random] HitRatioPerItem: {1122: 0.5882352941176471, 1202: 0.5468409586056645, 1500: 0.5751633986928104}
+[random] AvgHitRatio: 0.570079883805374
+Total time:  136.614098072052
 
 
 Simulating attack:  sampling
@@ -51,13 +51,13 @@ Done computing similarity matrix.
 RMSE: 0.9424
 RMSE:  0.9424
 No. of predictions:  649026
-[sampling] Prediction shift - Target users: 0.14800390674676958
-[sampling] Prediction shift - All users: 0.6290843317399604
-[sampling] Number of users with targets: 238
-[sampling] Number of users with targets before attack: 1
-[sampling] HitRatioPerItem: {1122: 0.4662309368191721, 1201: 0.0, 1500: 0.48148148148148145}
-[sampling] AvgHitRatio: 0.31590413943355117
-Total time:  145.6516616344452
+[sampling] Prediction shift - Target users: 0.21203741224811493
+[sampling] Prediction shift - All users: 0.9030367551355655
+[sampling] Number of users with targets: 262
+[sampling] Number of users with targets before attack: 2
+[sampling] HitRatioPerItem: {1122: 0.485838779956427, 1202: 0.42701525054466233, 1500: 0.48366013071895425}
+[sampling] AvgHitRatio: 0.46550472040668117
+Total time:  138.1267602443695
 
 
 Simulating attack:  average
@@ -68,14 +68,13 @@ Done computing similarity matrix.
 RMSE: 0.9369
 RMSE:  0.9369
 No. of predictions:  649026
-[average] Prediction shift - Target users: 0.18451286680150383
-[average] Prediction shift - All users: 0.7641477384688931
-[average] Number of users with targets: 354
-[average] Number of users with targets before attack: 1
-[average] HitRatioPerItem: {1122: 0.7037037037037037, 1201: 0.0, 1500: 0.710239651416122}
-[average] AvgHitRatio: 0.4713144517066086
-Total time:  145.2538628578186
-
+[average] Prediction shift - Target users: 0.2675288910194032
+[average] Prediction shift - All users: 1.1174659992053126
+[average] Number of users with targets: 377
+[average] Number of users with targets before attack: 2
+[average] HitRatioPerItem: {1122: 0.710239651416122, 1202: 0.6535947712418301, 1500: 0.7145969498910676}
+[average] AvgHitRatio: 0.6928104575163397
+Total time:  151.03778100013733
 
 ..............................
 Number of target users:  198

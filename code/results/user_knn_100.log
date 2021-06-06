@@ -8,75 +8,78 @@ Computed prediction and top 10 for model before adding attack data
 Time taken:  95.07668685913086
 Number of target users:  197
 
-Case 1: Target items: [1122, 1201, 1500], target users: 197
+Case 1: Target items: [1122, 1202, 1500], target users: 194
 
 Simulating attack:  bandwagon
 ------------------------------
+attack data path:  ../attackData100/case1/bandwagon.csv
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
 RMSE: 0.9375
 RMSE:  0.9375
 No. of predictions:  649026
-[bandwagon] Prediction shift - Target users: 0.13093183137519665
-[bandwagon] Prediction shift - All users: 0.5496972794840129
-[bandwagon] Number of users with targets before attack: 223
-[bandwagon] Number of users with targets: 422
-[bandwagon] hitRatioPerItem: {1122: 0.8322440087145969, 1201: 0.0, 1500: 0.8431372549019608}
-[bandwagon] avgHitRatio: 0.5584604212055192
-Time taken:  101.58639287948608
+[bandwagon] Prediction shift - Target users: 0.20212523128344065
+[bandwagon] Prediction shift - All users: 0.8392898323441816
+[bandwagon] Number of users with targets before attack: 228
+[bandwagon] Number of users with targets: 426
+[bandwagon] hitRatioPerItem: {1122: 0.8148148148148148, 1202: 0.5860566448801743, 1500: 0.8235294117647058}
+[bandwagon] avgHitRatio: 0.7414669571532316
+Time taken:  100.14537382125854
 
 
 Simulating attack:  random
 ------------------------------
+attack data path:  ../attackData100/case1/random.csv
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
 RMSE: 0.9340
 RMSE:  0.934
 No. of predictions:  649026
-[random] Prediction shift - Target users: 0.12203023952943821
-[random] Prediction shift - All users: 0.5136849624847525
-[random] Number of users with targets before attack: 223
-[random] Number of users with targets: 431
-[random] hitRatioPerItem: {1122: 0.8387799564270153, 1201: 0.0, 1500: 0.8888888888888888}
-[random] avgHitRatio: 0.5758896151053013
-Time taken:  101.6610918045044
+[random] Prediction shift - Target users: 0.19255003089660702
+[random] Prediction shift - All users: 0.7688132922763605
+[random] Number of users with targets before attack: 228
+[random] Number of users with targets: 433
+[random] hitRatioPerItem: {1122: 0.8344226579520697, 1202: 0.6514161220043573, 1500: 0.8779956427015251}
+[random] avgHitRatio: 0.7879448075526506
+Time taken:  99.30355978012085
 
 
 Simulating attack:  sampling
 ------------------------------
+attack data path:  ../attackData100/case1/sampling.csv
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
 RMSE: 0.9321
 RMSE:  0.9321
 No. of predictions:  649026
-[sampling] Prediction shift - Target users: 0.10674384677461761
-[sampling] Prediction shift - All users: 0.4620433042484855
-[sampling] Number of users with targets before attack: 223
-[sampling] Number of users with targets: 415
-[sampling] hitRatioPerItem: {1122: 0.599128540305011, 1201: 0.0, 1500: 0.8649237472766884}
-[sampling] avgHitRatio: 0.48801742919389984
-Time taken:  101.70549392700195
+[sampling] Prediction shift - Target users: 0.1157605237424588
+[sampling] Prediction shift - All users: 0.5171274180833895
+[sampling] Number of users with targets before attack: 228
+[sampling] Number of users with targets: 412
+[sampling] hitRatioPerItem: {1122: 0.5947712418300654, 1202: 0.12200435729847495, 1500: 0.8649237472766884}
+[sampling] avgHitRatio: 0.5272331154684096
+Time taken:  98.55929327011108
 
 
 Simulating attack:  average
 ------------------------------
+attack data path:  ../attackData100/case1/average.csv
 Estimating biases using als...
 Computing the pearson_baseline similarity matrix...
 Done computing similarity matrix.
 RMSE: 0.9346
 RMSE:  0.9346
 No. of predictions:  649026
-[average] Prediction shift - Target users: 0.12012953723190938
-[average] Prediction shift - All users: 0.5100679435351648
-[average] Number of users with targets before attack: 223
+[average] Prediction shift - Target users: 0.1883260593865802
+[average] Prediction shift - All users: 0.793966396922042
+[average] Number of users with targets before attack: 228
 [average] Number of users with targets: 440
-[average] hitRatioPerItem: {1122: 0.8888888888888888, 1201: 0.0, 1500: 0.9215686274509803}
-[average] avgHitRatio: 0.6034858387799563
-Time taken:  103.2297682762146
-
+[average] hitRatioPerItem: {1122: 0.8823529411764706, 1202: 0.7058823529411765, 1500: 0.9041394335511983}
+[average] avgHitRatio: 0.8307915758896152
+Time taken:  102.97302222251892
 
 ..............................
 Number of target users:  198

@@ -11,6 +11,7 @@ from surprise.model_selection import train_test_split
 from surprise.prediction_algorithms.knns import KNNBaseline
 
 NUM_SEL_ITEMS = 3
+ATTACK_DIR = '../attackData100'
 
 def get_top_n(df, n=10):
     #Return the top-N recommendation for each user from a set of predictions.
@@ -73,7 +74,7 @@ _, newTestSet = train_test_split(new_test_data,test_size=1.0)
 #-----------------------------------------------------
 
 attackType = ['bandwagon', 'random', 'sampling', 'average']
-cases = [[1122, 1201, 1500], [1661, 1671, 1678], [678, 235, 210], [107, 62, 1216]]
+cases = [[1122, 1202, 1500], [1661, 1671, 1678], [678, 235, 210], [107, 62, 1216]]
 NUM_SEL_ITEMS = 3
 selected_items = [ 50, 181, 258]
 
@@ -112,7 +113,9 @@ for case_num in range(len(cases)):
         print('-' * 30)
 
         # - Attack data
-        attackDataDf = pd.read_csv(f'../attackData/case{case_num + 1}/{a_type}.csv')
+        attackFile = f'{ATTACK_DIR}/case{case_num + 1}/{a_type}.csv'
+        print("attack data path: ", attackFile)
+        attackDataDf = pd.read_csv(attackFile)
         attackTrainData = pd.concat([trainDf, attackDataDf]).sort_values(by=['user_id', 'item_id'])
 
         # - Attack dataset
@@ -165,7 +168,7 @@ print('Simulating attack: ', a_type)
 print('-' * 30)
 
 # - Attack data
-attackDataDf = pd.read_csv(f'../attackData/case3/segment.csv')
+attackDataDf = pd.read_csv(f'{ATTACK_DIR}/segment.csv')
 attackTrainData = pd.concat([trainDf, attackDataDf]).sort_values(by=['user_id', 'item_id'])
 
 # - Attack dataset
