@@ -1,10 +1,13 @@
 import numpy as np
 import pandas as pd 
+import time
 
-from eval_metrics import prediction_shift, filterRecsByTargetItem, getHitRatioPerItem, getAvgHitRatio
+from eval_metrics import prediction_shift, filterRecsByTargetItem, getHitRatioPerItem, getAvgHitRatio, pshift_target_items
 from collections import defaultdict
 from surprise import Dataset
 from surprise import Reader
+from surprise import accuracy
+from surprise.model_selection import train_test_split
 from surprise.prediction_algorithms.knns import KNNBaseline
 
 NUM_SEL_ITEMS = 3
@@ -45,24 +48,31 @@ item_cols = ['item_id', 'movie', 'release_date', 'v_release_date', 'imdb_url', '
 
 trainDf = pd.read_csv('../data/MovieLens.training', sep='\t', lineterminator='\n')
 testDf = pd.read_csv('../data/MovieLens.test', sep='\t', lineterminator='\n')
+newTestDf = pd.read_csv('../data/newTestSet.csv', sep=',', lineterminator='\n')
 itemDf = pd.read_csv('../data/MovieLens.item', sep='|', lineterminator='\n')
 
 trainDf.columns = train_cols
 testDf.columns = train_cols
 itemDf.columns = item_cols
+newTestDf.columns = train_cols[:3]
 
 # A reader is still needed but only the rating_scale param is requiered.
 reader = Reader(rating_scale=(1, 5))
 train_data = Dataset.load_from_df(trainDf[['user_id', 'item_id', 'rating']], reader)
 test_data = Dataset.load_from_df(testDf[['user_id', 'item_id', 'rating']], reader)
+new_test_data = Dataset.load_from_df(newTestDf[['user_id', 'item_id', 'rating']], reader)
 
 trainset = train_data.build_full_trainset()
 
+# - https://github.com/NicolasHug/Surprise/issues/215#issuecomment-659401192
+_, testset = train_test_split(test_data, test_size=1.0)
+_, newTestSet = train_test_split(new_test_data,test_size=1.0)
+ 
 # ----------------------------------------------------
 # Code to get KNN hit ratio and pred shift numbers
 #-----------------------------------------------------
 
-attackType = ['bandwagon', 'random', 'sampling', 'segment', 'average']
+attackType = ['bandwagon', 'random', 'sampling', 'average']
 cases = [[1122, 1201, 1500], [1661, 1671, 1678], [678, 235, 210], [107, 62, 1216]]
 NUM_SEL_ITEMS = 3
 selected_items = [ 50, 181, 258]
@@ -70,27 +80,36 @@ selected_items = [ 50, 181, 258]
 # - Before attack model data
 userBasedKNN = KNNBaseline(sim_options={'name': 'pearson_baseline', 'user_based': True})
 userBasedKNN.fit(trainset)
-b4AttackTestDf = testDf.copy()
+
+# - https://surprise.readthedocs.io/en/stable/FAQ.html?highlight=rmse#how-to-get-accuracy-measures-on-the-training-set
+predictions = userBasedKNN.test(testset)
+base_RMSE = accuracy.rmse(predictions)
+print("Base RMSE: ", np.round(base_RMSE, 4))
 
 # - get predictions on test set from trained model with attack data
-prediction = []
-for index, row in b4AttackTestDf.iterrows():
-    pred = userBasedKNN.predict(row["user_id"], row["item_id"], row["rating"], verbose=False)
-    prediction.append(pred[3])
-b4AttackTestDf['prediction'] = prediction
-b4Attacktop10 = get_top_n(b4AttackTestDf)
-print('Computed prediction and top 10 for model before adding attack data')
+start_time = time.time()
+predictions = userBasedKNN.test(newTestSet)
+print("new predictions: ", len(predictions))
 
+# - convert prediction data to df
+test_user_pred = np.array([[p[0], p[1], p[3]] for p in predictions])
+b4_NewTestDf = pd.DataFrame(data=test_user_pred, columns=["user_id", "item_id", "prediction"])
+b4Attacktop10 = get_top_n(b4_NewTestDf)
+
+print('Computed prediction and top 10 for model before adding attack data')
+print("Time taken: ", time.time() -  start_time)
+
+start_time = time.time()
 for case_num in range(len(cases)):
-    target_items = cases[case_num]
+    target_items = cases[case_num] 
     target_users = getTargetUsers(target_items)
-    print(f'\nCase {case_num + 1}: Target items: {target_items}, target users: {len(target_users)}')
+    print(f'\nCase {case_num + 1}: Target items: {target_items}, target users: {len(target_users)}\n')
     
     # - https://surprise.readthedocs.io/en/stable/getting_started.html?highlight=KNNBaseline#use-a-custom-dataset
     for a_type in attackType:
-        print("\n", '-' * 30)
+        t1 = time.time()
         print('Simulating attack: ', a_type)
-        print('-' * 30, "\n")
+        print('-' * 30)
 
         # - Attack data
         attackDataDf = pd.read_csv(f'../attackData/case{case_num + 1}/{a_type}.csv')
@@ -102,27 +121,87 @@ for case_num in range(len(cases)):
 
         attackUserBasedKNN = KNNBaseline(sim_options={'name': 'pearson_baseline', 'user_based': True})
         attackUserBasedKNN.fit(attackTrainset)
-        attackTestDf = testDf.copy()
 
-        prediction = []
-        for index, row in attackTestDf.iterrows():
-            pred = attackUserBasedKNN.predict(row["user_id"], row["item_id"], row["rating"], verbose=False)
-            prediction.append(pred[3])
+        # - RMSE calculation
+        predictions = attackUserBasedKNN.test(testset)
+        attack_RMSE = accuracy.rmse(predictions)
+        print("RMSE: ", np.round(attack_RMSE, 4))
 
-        attackTestDf['prediction'] = prediction
-        attackTop10 = get_top_n(attackTestDf)
+        # - get prediction on new test set for prediction shift and hit ratio
+        predictions = attackUserBasedKNN.test(newTestSet)
+        print("No. of predictions: ", len(predictions))
 
-        allUsersPredShift, targetUserPredShift = prediction_shift(b4AttackTestDf, attackTestDf, target_users, testDf)
+        # - convert prediction data to df
+        test_user_pred = np.array([[p[0], p[1], p[3]] for p in predictions])
+        attackNewTestDf = pd.DataFrame(data=test_user_pred, columns=["user_id", "item_id", "prediction"])
+        attackTop10 = get_top_n(attackNewTestDf)
+
+        allUsersPredShift, targetUserPredShift = pshift_target_items(b4_NewTestDf, attackNewTestDf, target_users, target_items, newTestDf)
         print(f'[{a_type}] Prediction shift - Target users: {targetUserPredShift}')
         print(f'[{a_type}] Prediction shift - All users: {allUsersPredShift}')
 
         topNRecAllUsersWithTargetsB4 = filterRecsByTargetItem(b4Attacktop10, target_items)
         topNRecAllUsersWithTargets = filterRecsByTargetItem(attackTop10, target_items)
 
-        print(f'[{a_type}] Number of users with targets: {len(topNRecAllUsersWithTargets)}')
         print(f'[{a_type}] Number of users with targets before attack: {len(topNRecAllUsersWithTargetsB4)}')
+        print(f'[{a_type}] Number of users with targets: {len(topNRecAllUsersWithTargets)}')
 
         hitRatioPerItem = getHitRatioPerItem(attackTop10, target_items)
         print(f'[{a_type}] hitRatioPerItem: {hitRatioPerItem}')
         avgHitRatio = getAvgHitRatio(hitRatioPerItem)
-        print(f'[{a_type}] avgHitRatio after attack: {avgHitRatio}')
+        print(f'[{a_type}] avgHitRatio: {avgHitRatio}')
+        
+        print("Time taken: ", time.time() - t1)
+        print("\n")
+    print('.' * 30)
+
+#-------------------
+# - segment attack
+#-------------------
+target_items = [713, 1053, 6]
+target_users = getTargetUsers(target_items)
+a_type = 'segment'
+print('Simulating attack: ', a_type)
+print('-' * 30)
+
+# - Attack data
+attackDataDf = pd.read_csv(f'../attackData/case3/segment.csv')
+attackTrainData = pd.concat([trainDf, attackDataDf]).sort_values(by=['user_id', 'item_id'])
+
+# - Attack dataset
+attacktrain_data = Dataset.load_from_df(attackTrainData[['user_id', 'item_id', 'rating']], reader)
+attackTrainset = attacktrain_data.build_full_trainset()
+
+attackUserBasedKNN = KNNBaseline(sim_options={'name': 'pearson_baseline', 'user_based': True})
+attackUserBasedKNN.fit(attackTrainset)
+
+# - RMSE calculation
+predictions = attackUserBasedKNN.test(testset)
+attack_RMSE = accuracy.rmse(predictions)
+print("RMSE: ", np.round(attack_RMSE, 4))
+
+# - get prediction on new test set for prediction shift and hit ratio
+predictions = attackUserBasedKNN.test(newTestSet)
+print("No. of predictions: ", len(predictions))
+
+# - convert prediction data to df
+test_user_pred = np.array([[p[0], p[1], p[3]] for p in predictions])
+attackNewTestDf = pd.DataFrame(data=test_user_pred, columns=["user_id", "item_id", "prediction"])
+attackTop10 = get_top_n(attackNewTestDf)
+
+allUsersPredShift, targetUserPredShift = pshift_target_items(b4_NewTestDf, attackNewTestDf, target_users, target_items, newTestDf)
+print(f'[{a_type}] Prediction shift - Target users: {targetUserPredShift}')
+print(f'[{a_type}] Prediction shift - All users: {allUsersPredShift}')
+
+topNRecAllUsersWithTargetsB4 = filterRecsByTargetItem(b4Attacktop10, target_items)
+topNRecAllUsersWithTargets = filterRecsByTargetItem(attackTop10, target_items)
+
+print(f'[{a_type}] Number of users with targets before attack: {len(topNRecAllUsersWithTargetsB4)}')
+print(f'[{a_type}] Number of users with targets: {len(topNRecAllUsersWithTargets)}')
+
+hitRatioPerItem = getHitRatioPerItem(attackTop10, target_items)
+print(f'[{a_type}] hitRatioPerItem: {hitRatioPerItem}')
+avgHitRatio = getAvgHitRatio(hitRatioPerItem)
+print(f'[{a_type}] avgHitRatio: {avgHitRatio}')
+
+print("Total time: ", time.time() - start_time)
